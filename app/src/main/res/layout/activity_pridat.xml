@@ -15,7 +15,10 @@
             android:id="@+id/nazovTextView"
             android:text="Nazov:"
             android:textColor="#000000"/>
-        <EditText android:id="@+id/NazovEditText"/>
+        <EditText android:id="@+id/NazovEditText"
+            android:minWidth="252dp"
+            android:maxWidth="275dp"
+            />
     </TableRow>
 
     <TableRow>
@@ -23,7 +26,54 @@
             android:id="@+id/kategoriaTextView"
             android:text="Kategoria:"
             android:textColor="#000000"/>
-        <EditText android:id="@+id/kategoriEditText"/>
+        <CheckBox
+            android:id="@+id/PredjedlaCheckBox"
+            android:text="Predjedlá"
+            android:editable="true"/>
+
+    </TableRow>
+    <TableRow>
+        <TextView/>
+        <CheckBox
+            android:id="@+id/PolievkyCheckBox"
+            android:text="Polievky"
+            android:editable="true"/>
+    </TableRow>
+    <TableRow>
+        <TextView/>
+        <CheckBox
+            android:id="@+id/MasiteCheckBox"
+            android:text="Mäsité jedlá"
+            android:editable="true"/>
+    </TableRow>
+    <TableRow>
+        <TextView/>
+        <CheckBox
+            android:id="@+id/bexmasiteCheckBox"
+            android:text="Bezmäsité jedlá"
+            android:editable="true"/>
+    </TableRow>
+    <TableRow>
+        <TextView/>
+        <CheckBox
+            android:id="@+id/salatyCheckBox"
+            android:text="Šaláty"
+            android:editable="true"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView/>
+        <CheckBox
+            android:id="@+id/DezertyCheckBox"
+            android:text="Dezerty"
+            android:editable="true"/>
+    </TableRow>
+    <TableRow>
+        <TextView/>
+        <CheckBox
+            android:id="@+id/NapojeCheckBox"
+            android:text="Nápoje"
+            android:editable="true"/>
     </TableRow>
 
     <TableRow>
@@ -31,7 +81,11 @@
             android:id="@+id/ingrediencieTextView"
             android:text="Ingrediencie:"
             android:textColor="#000000"/>
-        <EditText android:id="@+id/ingrediencieEditText"/>
+        <EditText android:id="@+id/ingrediencieEditText"
+            android:minWidth="252dp"
+            android:maxWidth="275dp"
+
+            />
     </TableRow>
 
     <TableRow>
@@ -40,7 +94,10 @@
             android:text="Postup:"
             android:textColor="#000000"
             />
-        <EditText android:id="@+id/postupEditText" />
+        <EditText android:id="@+id/postupEditText"
+            android:minWidth="252dp"
+            android:maxWidth="275dp"
+            />
     </TableRow>
 
 </TableLayout>

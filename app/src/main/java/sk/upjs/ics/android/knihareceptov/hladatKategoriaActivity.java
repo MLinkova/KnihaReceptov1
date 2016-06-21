@@ -20,13 +20,13 @@ public class hladatKategoriaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hladat_kategoria);
         listView= (ListView) findViewById(R.id.kategorieListView);
-        moznosti.add("Predjedla");
+        moznosti.add("Predjedlá");
         moznosti.add("Polievky");
-        moznosti.add("Masite jedla");
-        moznosti.add("Bezmasite jedla");
-        moznosti.add("Salaty");
+        moznosti.add("Mäsité jedlá");
+        moznosti.add("Bezmäsité jedlá");
+        moznosti.add("Šaláty");
         moznosti.add("Dezerty");
-        moznosti.add("Napoje");
+        moznosti.add("Nápoje");
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,moznosti);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

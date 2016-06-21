@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         Intent intent= new Intent(MainActivity.this, hladatKategoriaActivity.class);
                         startActivity(intent);
                     }
-                    if(!("nazov".equals(vyber))|| !("kategoria".equals(vyber))){
+                    if(!("nazov".equals(vyber))&& !("kategoria".equals(vyber))){
                         Toast.makeText(MainActivity.this, "Napiste len slovo: nazov alebo kategoria", Toast.LENGTH_LONG).show();
                     }
                 }

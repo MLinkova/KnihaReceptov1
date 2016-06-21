@@ -41,8 +41,7 @@ public class zobrazActivity extends AppCompatActivity {
                     try {
 
                         if ((cursor != null) && cursor.moveToFirst()) {
-                            //while(!cursor.isAfterLast()){
-                           //  if(cursor.getString(0).equals(id.toString())){
+
                               String nazov = cursor.getString(1);
                               nazovRTextView.setText(nazov);
                               String kategoria = cursor.getString(2);
@@ -51,14 +50,12 @@ public class zobrazActivity extends AppCompatActivity {
                               ingrediencieRTextView.setText(ingrediencie);
                               String postup = cursor.getString(4);
                                postupRTextView.setText(postup);
-                           //   }
-                            //    cursor.moveToNext();
-                            //}
 
 
 
                         }
                     }finally {
+                        if(cursor!=null)
                         cursor.close();
 
                     }
