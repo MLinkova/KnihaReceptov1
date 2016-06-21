@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#66ff66"
+    tools:context="sk.upjs.ics.android.knihareceptov.pridatActivity">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/nazovTextView"
+            android:text="Nazov:"
+            android:textColor="#000000"/>
+        <EditText android:id="@+id/NazovEditText"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/kategoriaTextView"
+            android:text="Kategoria:"
+            android:textColor="#000000"/>
+        <EditText android:id="@+id/kategoriEditText"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/ingrediencieTextView"
+            android:text="Ingrediencie:"
+            android:textColor="#000000"/>
+        <EditText android:id="@+id/ingrediencieEditText"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/postupTextView"
+            android:text="Postup:"
+            android:textColor="#000000"
+            />
+        <EditText android:id="@+id/postupEditText" />
+    </TableRow>
+
+</TableLayout>
