@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 AsyncQueryHandler handler = new AsyncQueryHandler(getContentResolver()) {
                     @Override
                     protected void onDeleteComplete(int token, Object cookie, int result) {
+                        Toast.makeText(MainActivity.this, "Bol vymazaní recept", Toast.LENGTH_LONG).show();
 
                     }
                 };
