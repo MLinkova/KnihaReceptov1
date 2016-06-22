@@ -32,7 +32,7 @@ public class zobrazVysledkyActivity extends AppCompatActivity {
         Intent intent=getIntent();
         if(intent.hasExtra("Nazov")){
             String nazov= (String) intent.getSerializableExtra("Nazov");
-            String where=Recepty.Recept.NAZOV + " like "+ "\'"+ nazov+"\'";
+            String where=Recepty.Recept.NAZOV + " like "+ "\'%"+ nazov+"%\'";
             AsyncQueryHandler handler= new AsyncQueryHandler(getContentResolver()) {
                 @Override
                 protected void onQueryComplete(int token, Object cookie, Cursor cursor) {

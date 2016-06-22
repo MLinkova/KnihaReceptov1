@@ -15,17 +15,26 @@
         android:id="@+id/nazovReceptuTextView"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="25dp"/>
+
     <TextView
         android:id="@+id/kategoriaReceptuTextView"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:textColor="#000000"/>
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
         android:id="@+id/ingrediencieReceptuTextView"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/postupReceptuTextView"
         android:layout_height="wrap_content"
