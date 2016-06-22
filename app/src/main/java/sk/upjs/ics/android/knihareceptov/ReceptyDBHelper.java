@@ -31,25 +31,12 @@ public class ReceptyDBHelper extends SQLiteOpenHelper {
                 Recepty.Recept.INGREDIENCIE,
                 Recepty.Recept.POSTUP));
 
-        insertSampleEntry(db,
-                "Paradajkova polievka",
-                "Polievky",
-                "4 ks paradajkový pretlak,4 litre vody,olej,hladká múka,trochu soli,5 PL kryštálového cukru,mleté čierne korenie, syr tvrdý",
-                "Z múky a oleja si spravíme redšiu zásmažku a za stáleho miešania pridáme všetky pretlaky.Stále miešame a zalievame vodou.Dochutíme soľou, korením a cukrom a necháme prejsť varom. Polievku si na tanieri ozdobíme postrúhaným syrom."
-        );
+
 
     }
 
 
-    private void insertSampleEntry(SQLiteDatabase db, String nazov,String kategoria,String ingrediencie,String postup) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(Recepty.Recept.NAZOV, nazov);
-        contentValues.put(Recepty.Recept.KATEGORIA, kategoria);
-        contentValues.put(Recepty.Recept.INGREDIENCIE, ingrediencie);
-        contentValues.put(Recepty.Recept.POSTUP, postup);
 
-        db.insert(Recepty.Recept.TABLE_NAME,null, contentValues);
-    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

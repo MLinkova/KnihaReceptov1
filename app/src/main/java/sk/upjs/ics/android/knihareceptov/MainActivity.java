@@ -127,8 +127,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
             new AlertDialog.Builder(this)
-                    .setTitle("Hľadať").
-                    setMessage("Napiste či chcete hľadať podľa názvu alebo kategórie.")
+                    .setTitle("Hľadať podľa ...").
+                    setMessage("Zadajte slovo:\n nazov alebo kategoria.")
                     .setPositiveButton("OK", listener)
                     .setView(rozhodniEditTtext)
                     .show();

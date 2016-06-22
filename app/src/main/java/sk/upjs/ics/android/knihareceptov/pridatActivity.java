@@ -32,7 +32,7 @@ public class pridatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pridat);
         nazovEditText = (EditText) findViewById(R.id.NazovEditText);
-      //  kategoriaEditText= (EditText) findViewById(R.id.kategoriEditText);
+
 
         predjedlaCheckBox = (CheckBox) findViewById(R.id.PredjedlaCheckBox);
         polievkyCheckBox = (CheckBox) findViewById(R.id.PolievkyCheckBox);
@@ -89,7 +89,7 @@ public class pridatActivity extends AppCompatActivity {
 
                             }
 
-                          //  kategoriaEditText.setText(kategoria);
+
                             String ingrediencie = cursor.getString(3);
                             ingrediencieEditText.setText(ingrediencie);
                             String postup = cursor.getString(4);
@@ -142,7 +142,7 @@ public class pridatActivity extends AppCompatActivity {
             contentValues.put(Recepty.Recept.KATEGORIA, "Nápoje");
 
         }
-       // contentValues.put(Recepty.Recept.KATEGORIA, kategoriaEditText.getText().toString());
+
         contentValues.put(Recepty.Recept.INGREDIENCIE,  ingrediencieEditText.getText().toString());
         contentValues.put(Recepty.Recept.POSTUP, postupEditText.getText().toString());
         if(inzertovat) {

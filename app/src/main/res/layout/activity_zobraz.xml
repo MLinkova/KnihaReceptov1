@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="sk.upjs.ics.android.knihareceptov.zobrazActivity"
     android:orientation="vertical"
-    android:background="#ffcc99"
+    android:background="#80ffd4"
     >
     <TextView
         android:id="@+id/nazovReceptuTextView"
