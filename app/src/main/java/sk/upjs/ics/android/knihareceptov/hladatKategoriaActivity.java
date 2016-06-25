@@ -27,7 +27,7 @@ public class hladatKategoriaActivity extends AppCompatActivity {
         moznosti.add("Šaláty");
         moznosti.add("Dezerty");
         moznosti.add("Nápoje");
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,moznosti);
+        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,R.layout.custom_textview,moznosti);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

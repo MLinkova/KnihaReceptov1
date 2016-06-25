@@ -1,3 +1,31 @@
 <resources>
-    <string name="app_name">KnihaReceptov</string>
+    <string name="app_name">Book of recipe</string>
+    <string name="edit_recipe">Edit recipe</string>
+    <string name="foto_recipe">Take a photo</string>
+    <string name="search_recipe">Search a recipe</string>
+    <string name="add_recipe">Add recipet</string>
+    <string name="ok_button">OK</string>
+    <string name="nazov_add">Name: </string>
+    <string name="kategoria_add">Type: </string>
+    <string name="ingrediencie_add">Ingrediencies: </string>
+    <string name="postup_add">How to do it: </string>
+    <string name="item_kategorii_1">Entreé</string>
+    <string name="item_kategorii_2">Soups</string>
+    <string name="item_kategorii_3">Food from meat</string>
+    <string name="item_kategorii_4">Food without meat</string>
+    <string name="item_kategorii_5">Salads</string>
+    <string name="item_kategorii_6">Dessert</string>
+    <string name="item_kategorii_7">Beverage</string>
+    <string name="title_activity_zobraz">zobrazActivity</string>
+    <string name="foto_button">Camera</string>
+    <string name="search_title">Search according to ...</string>
+    <string name="search_message">You can choose type of searching.</string>
+    <string name="delete_recipe">Recipe was deleted.</string>
+    <string name="nazov">Name</string>
+    <string name="kategoria">Type</string>
+    <string name="ingrediencie">Ingrediencies</string>
+    <string name="search_nazov">Put a name:</string>
+    <string name="search_ingrediencie">Put ingrediencies:</string>
+
+
 </resources>

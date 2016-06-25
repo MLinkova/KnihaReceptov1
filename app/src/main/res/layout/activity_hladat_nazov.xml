@@ -7,16 +7,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".hladatNazovActivity"
-    android:orientation="vertical"
-    android:background="#80ffd4">
+    tools:context=".hladatActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/hladatTextView"
         android:textColor="#000000"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="Zadajte názov:"/>
+        />
     <EditText
         android:id="@+id/hladatEditText"
         android:layout_height="wrap_content"
@@ -26,6 +25,6 @@
         android:id="@+id/okButton"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="OK"/>
+        android:text="@string/ok_button"/>
 
 </LinearLayout>

@@ -1,20 +1,14 @@
 package sk.upjs.ics.android.knihareceptov;
 
-import android.app.LoaderManager;
 import android.content.AsyncQueryHandler;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +38,7 @@ public class zobrazVysledkyActivity extends AppCompatActivity {
                                 nazvy.add(cursor.getString(1));
                                 cursor.moveToNext();
                             }
-                            ArrayAdapter<String> adapter= new ArrayAdapter<String>(zobrazVysledkyActivity.this,android.R.layout.simple_list_item_1,nazvy);
+                            ArrayAdapter<String> adapter= new ArrayAdapter<String>(zobrazVysledkyActivity.this,R.layout.custom_textview,nazvy);
                             listView.setAdapter(adapter);
 
 
@@ -76,7 +70,7 @@ public class zobrazVysledkyActivity extends AppCompatActivity {
                                 nazvy.add(cursor.getString(1));
                                 cursor.moveToNext();
                             }
-                            ArrayAdapter<String> adapter= new ArrayAdapter<String>(zobrazVysledkyActivity.this,android.R.layout.simple_list_item_1,nazvy);
+                            ArrayAdapter<String> adapter= new ArrayAdapter<String>(zobrazVysledkyActivity.this,R.layout.custom_textview,nazvy);
                             listView.setAdapter(adapter);
 
 
@@ -91,10 +85,47 @@ public class zobrazVysledkyActivity extends AppCompatActivity {
             };
             handler.startQuery(0, null, Recepty.Recept.CONTENT_URI, null, where, null, null);
         }
+        if(intent.hasExtra("Ingrediencie")){
+            String ingrediencie= (String) intent.getSerializableExtra("Ingrediencie");
+            String[] poleIngrediencii=ingrediencie.split(",");
+            StringBuilder sb=new StringBuilder();
+            for (int i=0;i<poleIngrediencii.length;i++){
+                sb.append(poleIngrediencii[i]+"%");
+            }
+            String where= Recepty.Recept.INGREDIENCIE + " like " + "\'%"+ sb.toString() +  "\'";
+            AsyncQueryHandler handler= new AsyncQueryHandler(getContentResolver()) {
+                @Override
+                protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
+                    try{nazvy=new ArrayList<>();
+                        indexy= new ArrayList<>();
+                        if((cursor!=null)&& cursor.moveToFirst()){
+                            while(!cursor.isAfterLast()){
+                                indexy.add(Long.parseLong(cursor.getString(0)));
+                                nazvy.add(cursor.getString(1));
+                                cursor.moveToNext();
+                            }
+                            ArrayAdapter<String> adapter= new ArrayAdapter<String>(zobrazVysledkyActivity.this,R.layout.custom_textview,nazvy);
+                            listView.setAdapter(adapter);
+
+
+                        }
+                    }finally{
+                        if(cursor!=null){
+                            cursor.close();
+                        }
+                    }
+
+                }
+            };
+            handler.startQuery(0, null, Recepty.Recept.CONTENT_URI, null, where, null, null);
+        }
+
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(zobrazVysledkyActivity.this, zobrazActivity.class);
+                Intent intent = new Intent(zobrazVysledkyActivity.this, zobraz2Activity.class);
                 Long index = indexy.get(position);
                 intent.putExtra("ID", index);
                 startActivity(intent);

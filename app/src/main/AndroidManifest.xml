@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +23,32 @@
             android:exported="false" />
 
         <activity android:name=".pridatActivity" />
-        <activity android:name=".hladatNazovActivity" />
-        <activity android:name=".zobrazActivity" />
+        <activity android:name=".hladatActivity" />
+        <activity android:name=".zobraz2Activity" />
         <activity android:name=".zobrazVysledkyActivity" />
-        <activity android:name=".hladatKategoriaActivity"></activity>
+        <activity android:name=".hladatKategoriaActivity" />
+
+
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+        <uses-feature
+            android:name="android.hardware.camera"
+            android:required="false" />
+        <uses-feature
+            android:name="android.hardware.camera.front"
+            android:required="false" />
+        <uses-feature
+            android:name="android.hardware.camera.autofocus"
+            android:required="false" />
+        <uses-feature
+            android:name="android.hardware.camera.flash"
+            android:required="false" />
+
+        <uses-sdk android:minSdkVersion="11" />
+
+        <activity android:name=".fotoActivity"
+            android:label="@string/app_name" ></activity>
     </application>
 
 </manifest>

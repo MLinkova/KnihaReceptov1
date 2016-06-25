@@ -16,11 +16,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Switch;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 AsyncQueryHandler handler = new AsyncQueryHandler(getContentResolver()) {
                     @Override
                     protected void onDeleteComplete(int token, Object cookie, int result) {
-                        Toast.makeText(MainActivity.this, "Bol vymazaní recept", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.delete_recipe, Toast.LENGTH_LONG).show();
 
                     }
                 };
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         receptGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent= new Intent(MainActivity.this,zobrazActivity.class);
+                Intent intent= new Intent(MainActivity.this,zobraz2Activity.class);
                 intent.putExtra("ID",id);
 
 
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -105,33 +105,49 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         }
         if(item.getItemId() == R.id.menuHladat){
+            final RadioGroup radioGroup= new RadioGroup(this);
+            final RadioButton nazovRadioButton = new RadioButton(this);
+            nazovRadioButton.setText(R.string.nazov);
+            final RadioButton kategoriaRadioButton = new RadioButton(this);
+            kategoriaRadioButton.setText(R.string.kategoria);
+            final RadioButton ingrediencieRadioButton = new RadioButton(this);
+            ingrediencieRadioButton.setText(R.string.ingrediencie);
+            final LinearLayout layout= new LinearLayout(this);
+            layout.setOrientation(LinearLayout.VERTICAL);
+            radioGroup.addView(nazovRadioButton);
+            radioGroup.addView(kategoriaRadioButton);
+            radioGroup.addView(ingrediencieRadioButton);
+            layout.addView(radioGroup);
 
-            final EditText rozhodniEditTtext = new EditText(this);
+
 
             DialogInterface.OnClickListener listener= new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                   String vyber=rozhodniEditTtext.getText().toString();
-                    if ("nazov".equals(vyber)) {
-                        Intent intent= new Intent(MainActivity.this, hladatNazovActivity.class);
+
+                    if (nazovRadioButton.isChecked()) {
+                        Intent intent= new Intent(MainActivity.this, hladatActivity.class);
+                        intent.putExtra("Nazov","nazov");
                         startActivity(intent);
                     }
-                    if ("kategoria".equals(vyber)) {
+                    if (kategoriaRadioButton.isChecked()) {
                         Intent intent= new Intent(MainActivity.this, hladatKategoriaActivity.class);
                         startActivity(intent);
                     }
-                    if(!("nazov".equals(vyber))&& !("kategoria".equals(vyber))){
-                        Toast.makeText(MainActivity.this, "Napiste len slovo: nazov alebo kategoria", Toast.LENGTH_LONG).show();
-                    }
+                   if(ingrediencieRadioButton.isChecked()){
+                       Intent intent= new Intent(MainActivity.this, hladatActivity.class);
+                       intent.putExtra("Ingrediencie","ingrediencie");
+                       startActivity(intent);
+                   }
                 }
             };
 
 
             new AlertDialog.Builder(this)
-                    .setTitle("Hľadať podľa ...").
-                    setMessage("Zadajte slovo:\n nazov alebo kategoria.")
-                    .setPositiveButton("OK", listener)
-                    .setView(rozhodniEditTtext)
+                    .setTitle(R.string.search_title).
+                    setMessage(R.string.search_message)
+                    .setPositiveButton(R.string.ok_button, listener)
+                    .setView(layout)
                     .show();
             return true;
 

@@ -10,17 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class pridatActivity extends AppCompatActivity {
     private EditText nazovEditText;
    // private EditText kategoriaEditText;
-    private CheckBox predjedlaCheckBox;
-    private CheckBox polievkyCheckBox;
-    private CheckBox masiteCheckBox;
-    private CheckBox bezmasiteCheckBox;
-    private CheckBox salatyCheckBox;
-    private CheckBox dezertyCheckBox;
-    private CheckBox napojeCheckBox;
+    private RadioButton predjedlaCheckBox;
+    private RadioButton polievkyCheckBox;
+    private RadioButton masiteCheckBox;
+    private RadioButton bezmasiteCheckBox;
+    private RadioButton salatyCheckBox;
+    private RadioButton dezertyCheckBox;
+    private RadioButton napojeCheckBox;
 
     private EditText ingrediencieEditText;
     private EditText postupEditText;
@@ -34,13 +35,13 @@ public class pridatActivity extends AppCompatActivity {
         nazovEditText = (EditText) findViewById(R.id.NazovEditText);
 
 
-        predjedlaCheckBox = (CheckBox) findViewById(R.id.PredjedlaCheckBox);
-        polievkyCheckBox = (CheckBox) findViewById(R.id.PolievkyCheckBox);
-        masiteCheckBox = (CheckBox) findViewById(R.id.MasiteCheckBox);
-        bezmasiteCheckBox = (CheckBox) findViewById(R.id.bexmasiteCheckBox);
-        salatyCheckBox = (CheckBox) findViewById(R.id.salatyCheckBox);
-        dezertyCheckBox = (CheckBox) findViewById(R.id.DezertyCheckBox);
-        napojeCheckBox = (CheckBox) findViewById(R.id.NapojeCheckBox);
+        predjedlaCheckBox = (RadioButton) findViewById(R.id.PredjedlaRadioButton);
+        polievkyCheckBox = (RadioButton) findViewById(R.id.PolievkyRadioButton);
+        masiteCheckBox = (RadioButton) findViewById(R.id.MasiteRadioButton);
+        bezmasiteCheckBox = (RadioButton) findViewById(R.id.bexmasiteRadioButton);
+        salatyCheckBox = (RadioButton) findViewById(R.id.salatyRadioButton);
+        dezertyCheckBox = (RadioButton) findViewById(R.id.DezertyRadioButton);
+        napojeCheckBox = (RadioButton) findViewById(R.id.NapojeRadioButton);
 
         ingrediencieEditText= (EditText) findViewById(R.id.ingrediencieEditText);
         postupEditText= (EditText) findViewById(R.id.postupEditText);
@@ -123,7 +124,7 @@ public class pridatActivity extends AppCompatActivity {
 
         }
         if (masiteCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Mäsité jedlá");
+            contentValues.put(Recepty.Recept.KATEGORIA,"Mäsité jedlá");
 
         }
         if ( bezmasiteCheckBox.isChecked()) {
@@ -131,7 +132,7 @@ public class pridatActivity extends AppCompatActivity {
 
         }
         if (salatyCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Šaláty");
+            contentValues.put(Recepty.Recept.KATEGORIA,"Šaláty");
 
         }
         if (dezertyCheckBox.isChecked()) {

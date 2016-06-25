@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>  <string name="app_name">Kniha Receptov</string>
+    <string name="edit_recipe">Upraviť recept</string>
+    <string name="foto_recipe">Odfotiť</string>
+    <string name="search_recipe">Hľadať recept</string>
+    <string name="add_recipe">Pridať recept</string>
+    <string name="ok_button">OK</string>
+    <string name="nazov_add">Názov: </string>
+    <string name="kategoria_add">Kategória: </string>
+    <string name="ingrediencie_add">Ingrediencie: </string>
+    <string name="postup_add">Postup: </string>
+    <string name="item_kategorii_1">Predjedlá</string>
+    <string name="item_kategorii_2">Polievky</string>
+    <string name="item_kategorii_3">Mäsité jedlá</string>
+    <string name="item_kategorii_4">Bezmäsité jedlá</string>
+    <string name="item_kategorii_5">Šaláty</string>
+    <string name="item_kategorii_6">Dezerty</string>
+    <string name="item_kategorii_7">Nápoje</string>
+    <string name="title_activity_zobraz">zobrazActivity</string>
+    <string name="foto_button">Camera</string>
+    <string name="search_title">Hľadať podľa ...</string>
+    <string name="search_message">Vyberte si podľa čoho chcete vyhľadávať.</string>
+    <string name="delete_recipe">Recept bol vymazaný.</string>
+    <string name="nazov">Názov</string>
+    <string name="kategoria">Kategória</string>
+    <string name="ingrediencie">Ingrediencie</string>
+    <string name="search_nazov">Zadajte názov:</string>
+    <string name="search_ingrediencie">Zadajte ingrediencie:</string>
+
+</resources>

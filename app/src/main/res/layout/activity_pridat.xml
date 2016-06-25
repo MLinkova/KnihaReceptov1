@@ -7,13 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#80ffd4"
     tools:context="sk.upjs.ics.android.knihareceptov.pridatActivity">
 
     <TableRow>
         <TextView
             android:id="@+id/nazovTextView"
-            android:text="Nazov:"
+            android:text="@string/nazov_add"
             android:textColor="#000000"/>
         <EditText android:id="@+id/NazovEditText"
             android:minWidth="252dp"
@@ -24,62 +23,66 @@
     <TableRow>
         <TextView
             android:id="@+id/kategoriaTextView"
-            android:text="Kategoria:"
+            android:text="@string/kategoria_add"
             android:textColor="#000000"/>
-        <CheckBox
-            android:id="@+id/PredjedlaCheckBox"
-            android:text="Predjedlá"
-            android:editable="true"/>
+        <RadioGroup
+            android:orientation="vertical">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/PredjedlaRadioButton"
+                android:text="@string/item_kategorii_1"
+                android:editable="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/PolievkyRadioButton"
+                android:text="@string/item_kategorii_2"
+                android:editable="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/MasiteRadioButton"
+                android:text="@string/item_kategorii_3"
+                android:editable="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bexmasiteRadioButton"
+                android:text="@string/item_kategorii_4"
+                android:editable="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/salatyRadioButton"
+                android:text="@string/item_kategorii_5"
+                android:editable="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DezertyRadioButton"
+                android:text="@string/item_kategorii_6"
+                android:editable="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NapojeRadioButton"
+                android:text="@string/item_kategorii_7"
+                android:editable="true"
+                />
+        </RadioGroup>
 
-    </TableRow>
-    <TableRow>
-        <TextView/>
-        <CheckBox
-            android:id="@+id/PolievkyCheckBox"
-            android:text="Polievky"
-            android:editable="true"/>
-    </TableRow>
-    <TableRow>
-        <TextView/>
-        <CheckBox
-            android:id="@+id/MasiteCheckBox"
-            android:text="Mäsité jedlá"
-            android:editable="true"/>
-    </TableRow>
-    <TableRow>
-        <TextView/>
-        <CheckBox
-            android:id="@+id/bexmasiteCheckBox"
-            android:text="Bezmäsité jedlá"
-            android:editable="true"/>
-    </TableRow>
-    <TableRow>
-        <TextView/>
-        <CheckBox
-            android:id="@+id/salatyCheckBox"
-            android:text="Šaláty"
-            android:editable="true"/>
-    </TableRow>
-
-    <TableRow>
-        <TextView/>
-        <CheckBox
-            android:id="@+id/DezertyCheckBox"
-            android:text="Dezerty"
-            android:editable="true"/>
-    </TableRow>
-    <TableRow>
-        <TextView/>
-        <CheckBox
-            android:id="@+id/NapojeCheckBox"
-            android:text="Nápoje"
-            android:editable="true"/>
-    </TableRow>
-
+   </TableRow>
     <TableRow>
         <TextView
             android:id="@+id/ingrediencieTextView"
-            android:text="Ingrediencie:"
+            android:text="@string/ingrediencie_add"
             android:textColor="#000000"/>
         <EditText android:id="@+id/ingrediencieEditText"
             android:minWidth="252dp"
@@ -91,7 +94,7 @@
     <TableRow>
         <TextView
             android:id="@+id/postupTextView"
-            android:text="Postup:"
+            android:text="@string/postup_add"
             android:textColor="#000000"
             />
         <EditText android:id="@+id/postupEditText"
