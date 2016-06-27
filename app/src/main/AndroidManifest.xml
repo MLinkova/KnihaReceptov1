@@ -2,18 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sk.upjs.ics.android.knihareceptov">
 
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".UvodActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
+
         </activity>
 
         <provider
@@ -27,7 +38,10 @@
         <activity android:name=".zobraz2Activity" />
         <activity android:name=".zobrazVysledkyActivity" />
         <activity android:name=".hladatKategoriaActivity" />
-
+        <activity
+            android:name=".fotoActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" />
 
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -45,10 +59,6 @@
             android:name="android.hardware.camera.flash"
             android:required="false" />
 
-        <uses-sdk android:minSdkVersion="11" />
-
-        <activity android:name=".fotoActivity"
-            android:label="@string/app_name" ></activity>
     </application>
 
 </manifest>

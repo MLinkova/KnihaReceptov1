@@ -26,5 +26,14 @@
     <string name="ingrediencie">Ingrediencie</string>
     <string name="search_nazov">Zadajte názov:</string>
     <string name="search_ingrediencie">Zadajte ingrediencie:</string>
+    <string name="share_button">Zdieľať</string>
+    <string-array name="activityNavigationItems">
+        <item>Úvod</item>
+        <item>Pridať</item>
+        <item>Hľadať</item>
+        <item>Foto</item>>
+    </string-array>
+    <string name="openDrawer">Otvoriť</string>
+    <string name="closeDrawer">Zatvoriť</string>
 
 </resources>

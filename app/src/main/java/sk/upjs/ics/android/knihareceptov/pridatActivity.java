@@ -4,17 +4,27 @@ import android.content.AsyncQueryHandler;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.CheckBox;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 
-public class pridatActivity extends AppCompatActivity {
+import java.util.Locale;
+/*
+* pomocne zdrojove kody :
+* http://ics.upjs.sk/~novotnyr/android/vysuvny-panel-navigation-drawer.html
+* http://stackoverflow.com/questions/19442378/navigation-drawer-to-switch-activities-instead-of-fragments*/
+public class pridatActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private EditText nazovEditText;
-   // private EditText kategoriaEditText;
     private RadioButton predjedlaCheckBox;
     private RadioButton polievkyCheckBox;
     private RadioButton masiteCheckBox;
@@ -27,6 +37,9 @@ public class pridatActivity extends AppCompatActivity {
     private EditText postupEditText;
     private Long id;
     private boolean inzertovat=true;
+
+    private ActionBarDrawerToggle drawerToggle;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +58,26 @@ public class pridatActivity extends AppCompatActivity {
 
         ingrediencieEditText= (EditText) findViewById(R.id.ingrediencieEditText);
         postupEditText= (EditText) findViewById(R.id.postupEditText);
+
+
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
+
+        drawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout,
+                R.string.openDrawer,
+                R.string.closeDrawer
+        );
+
+        drawerLayout.setDrawerListener(drawerToggle);
+
+        ListView navigationListView = (ListView) findViewById(R.id.navigationListView);
+        navigationListView.setOnItemClickListener(this);
+
         Intent intent= getIntent();
         if(intent.hasExtra("ID")) {
             inzertovat=false;
@@ -60,33 +93,66 @@ public class pridatActivity extends AppCompatActivity {
                             String nazov = cursor.getString(1);
                             nazovEditText.setText(nazov);
                             String kategoria = cursor.getString(2);
+                            if(Locale.getDefault().getDisplayLanguage().equals("slovenčina")) {
 
-                            if ("Predjedlá".equals(kategoria)) {
-                                predjedlaCheckBox.setChecked(true);
+                                if ("Predjedlá".equals(kategoria)) {
+                                    predjedlaCheckBox.setChecked(true);
 
-                            }
-                            if ("Polievky".equals(kategoria)) {
-                                polievkyCheckBox.setChecked(true);
+                                }
+                                if ("Polievky".equals(kategoria)) {
+                                    polievkyCheckBox.setChecked(true);
 
-                            }
-                            if ("Mäsité jedlá".equals(kategoria)) {
-                                masiteCheckBox.setChecked(true);
+                                }
+                                if ("Mäsité jedlá".equals(kategoria)) {
+                                    masiteCheckBox.setChecked(true);
 
-                            }
-                            if ("Bezmäsité jedlá".equals(kategoria)) {
-                                bezmasiteCheckBox.setChecked(true);
+                                }
+                                if ("Bezmäsité jedlá".equals(kategoria)) {
+                                    bezmasiteCheckBox.setChecked(true);
 
-                            }
-                            if ("Šaláty".equals(kategoria)) {
-                                salatyCheckBox.setChecked(true);
+                                }
+                                if ("Šaláty".equals(kategoria)) {
+                                    salatyCheckBox.setChecked(true);
 
-                            }
-                            if ("Dezerty".equals(kategoria)) {
-                                dezertyCheckBox.setChecked(true);
+                                }
+                                if ("Dezerty".equals(kategoria)) {
+                                    dezertyCheckBox.setChecked(true);
 
-                            }
-                            if ("Nápoje".equals(kategoria)) {
-                                napojeCheckBox.setChecked(true);
+                                }
+                                if ("Nápoje".equals(kategoria)) {
+                                    napojeCheckBox.setChecked(true);
+
+                                }
+                            }else{
+
+                                if ("Appetizers".equals(kategoria)) {
+                                    predjedlaCheckBox.setChecked(true);
+
+                                }
+                                if ("Soups".equals(kategoria)) {
+                                    polievkyCheckBox.setChecked(true);
+
+                                }
+                                if ("Meat and Poultry".equals(kategoria)) {
+                                    masiteCheckBox.setChecked(true);
+
+                                }
+                                if ("Meals without meat".equals(kategoria)) {
+                                    bezmasiteCheckBox.setChecked(true);
+
+                                }
+                                if ("Salads".equals(kategoria)) {
+                                    salatyCheckBox.setChecked(true);
+
+                                }
+                                if ("Desserts".equals(kategoria)) {
+                                    dezertyCheckBox.setChecked(true);
+
+                                }
+                                if ("Drinks".equals(kategoria)) {
+                                    napojeCheckBox.setChecked(true);
+
+                                }
 
                             }
 
@@ -115,32 +181,63 @@ public class pridatActivity extends AppCompatActivity {
     public void onBackPressed() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Recepty.Recept.NAZOV, nazovEditText.getText().toString());
-        if ( predjedlaCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Predjedlá");
+        if(Locale.getDefault().getDisplayLanguage().equals("slovenčina") ){
+            if (predjedlaCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Predjedlá");
 
-        }
-        if ( polievkyCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Polievky");
+            }
+            if (polievkyCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Polievky");
 
-        }
-        if (masiteCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA,"Mäsité jedlá");
+            }
+            if (masiteCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Mäsité jedlá");
 
-        }
-        if ( bezmasiteCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Bezmäsité jedlá");
+            }
+            if (bezmasiteCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Bezmäsité jedlá");
 
-        }
-        if (salatyCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA,"Šaláty");
+            }
+            if (salatyCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Šaláty");
 
-        }
-        if (dezertyCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Dezerty");
+            }
+            if (dezertyCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Dezerty");
 
-        }
-        if ( napojeCheckBox.isChecked()) {
-            contentValues.put(Recepty.Recept.KATEGORIA, "Nápoje");
+            }
+            if (napojeCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Nápoje");
+
+            }
+        }else{
+            if (predjedlaCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Appetizers");
+            }
+            if (polievkyCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Soups");
+
+            }
+            if (masiteCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Meat and Poultry");
+
+            }
+            if (bezmasiteCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Meals without meat");
+
+            }
+            if (salatyCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Salads");
+
+            }
+            if (dezertyCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Desserts");
+
+            }
+            if (napojeCheckBox.isChecked()) {
+                contentValues.put(Recepty.Recept.KATEGORIA, "Drinks");
+
+            }
 
         }
 
@@ -164,11 +261,39 @@ public class pridatActivity extends AppCompatActivity {
                 }
             };
             Uri uri = ContentUris.withAppendedId(Recepty.Recept.CONTENT_URI, id);
-            handler.startUpdate(0,null,uri,contentValues,null,null);
-            Intent intent= new Intent(this,MainActivity.class);
+            handler.startUpdate(0, null, uri, contentValues, null, null);
+            Intent intent= new Intent(this,UvodActivity.class);
             startActivity(intent);
 
         }
 
     }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        navigationBar navigationBar = new navigationBar();
+        navigationBar.selectItem(position,this);
+        drawerLayout.closeDrawers();
+    }
+
 }

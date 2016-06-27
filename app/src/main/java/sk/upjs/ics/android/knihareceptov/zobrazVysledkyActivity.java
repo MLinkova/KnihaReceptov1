@@ -2,9 +2,13 @@ package sk.upjs.ics.android.knihareceptov;
 
 import android.content.AsyncQueryHandler;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,17 +16,43 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+* pomocne zdrojove kody :
+* http://ics.upjs.sk/~novotnyr/android/vysuvny-panel-navigation-drawer.html
+* http://stackoverflow.com/questions/19442378/navigation-drawer-to-switch-activities-instead-of-fragments*/
 
-public class zobrazVysledkyActivity extends AppCompatActivity {
+public class zobrazVysledkyActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     public static ListView listView = null;
     public static List<String> nazvy = null;
     public static List<Long> indexy = null;
+
+    private ActionBarDrawerToggle drawerToggle;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zobraz_vysledky);
         listView= (ListView) findViewById(R.id.receptListView);
+
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
+
+        drawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout,
+                R.string.openDrawer,
+                R.string.closeDrawer
+        );
+
+        drawerLayout.setDrawerListener(drawerToggle);
+
+        ListView navigationListView = (ListView) findViewById(R.id.navigationListView);
+        navigationListView.setOnItemClickListener(this);
+
         Intent intent=getIntent();
         if(intent.hasExtra("Nazov")){
             String nazov= (String) intent.getSerializableExtra("Nazov");
@@ -141,9 +171,39 @@ public class zobrazVysledkyActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent= new Intent(zobrazVysledkyActivity.this,MainActivity.class);
+        Intent intent= new Intent(zobrazVysledkyActivity.this,UvodActivity.class);
         startActivity(intent);
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        navigationBar navigationBar = new navigationBar();
+        navigationBar.selectItem(position,this);
+        drawerLayout.closeDrawers();
+    }
+
 }

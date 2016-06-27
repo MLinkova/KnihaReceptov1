@@ -11,6 +11,8 @@ import android.net.Uri;
 public class ReceptyContentProvider extends ContentProvider {
 private ReceptyDBHelper dbhelper;
 
+
+
     public ReceptyContentProvider() {
     }
 
@@ -60,8 +62,9 @@ private ReceptyDBHelper dbhelper;
                       String[] selectionArgs) {
         long id = ContentUris.parseId(uri);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-        int pocetRiakov = db.update(Recepty.Recept.TABLE_NAME,values, Recepty.Recept._ID + " = " + id, null);
-        getContext().getContentResolver().notifyChange(Recepty.Recept.CONTENT_URI,null);
+        int pocetRiakov = db.update(Recepty.Recept.TABLE_NAME, values, Recepty.Recept._ID + " = " + id, null);
+        getContext().getContentResolver().notifyChange(Recepty.Recept.CONTENT_URI, null);
         return pocetRiakov;
     }
+
 }

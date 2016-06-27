@@ -6,10 +6,7 @@
         android:title="@string/edit_recipe"
         android:icon="@android:drawable/ic_menu_edit"
         app:showAsAction="ifRoom" />
-    <item android:id="@+id/menufoto"
-        android:title="@string/foto_recipe"
-        android:icon="@android:drawable/ic_menu_camera"
-        app:showAsAction="ifRoom"
-        />
+
+    
 
 </menu>

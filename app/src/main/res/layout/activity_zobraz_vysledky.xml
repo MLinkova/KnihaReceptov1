@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/drawerLayout"
+    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +15,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="sk.upjs.ics.android.knihareceptov.zobrazVysledkyActivity">
+    tools:context=".zobrazVysledkyActivity">
 
     <ListView
         android:id="@+id/receptListView"
@@ -16,4 +24,14 @@
         android:foreground="#000000"
         ></ListView>
 
-</RelativeLayout>
+</LinearLayout>
+    <ListView android:id="@+id/navigationListView"
+        android:layout_height="match_parent"
+        android:layout_width="240dp"
+        android:layout_gravity="start"
+        android:background="@android:color/holo_blue_light"
+        android:entries="@array/activityNavigationItems"
+        >
+
+    </ListView>
+</android.support.v4.widget.DrawerLayout>
