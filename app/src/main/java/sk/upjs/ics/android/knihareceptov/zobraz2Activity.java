@@ -26,6 +26,7 @@ public class zobraz2Activity extends AppCompatActivity implements AdapterView.On
     private TextView ingrediencieRTextView;
     private  TextView postupRTextView;
     private Long id;
+    private KategoriaDao kategoriaDao=KategoriaDao.INSTANCE;
 
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout drawerLayout;
@@ -73,8 +74,11 @@ public class zobraz2Activity extends AppCompatActivity implements AdapterView.On
 
                               String nazov = cursor.getString(1);
                               nazovRTextView.setText(nazov);
-                              String kategoria = cursor.getString(2);
+                              String kategoria = kategoriaDao.getKategoria(Integer.parseInt(cursor.getString(2))).toString() ;
+
+                              if(kategoria!=null)
                               kategorieRTextView.setText(kategoria);
+
                               String ingrediencie = cursor.getString(3);
                               ingrediencieRTextView.setText(ingrediencie);
                               String postup = cursor.getString(4);

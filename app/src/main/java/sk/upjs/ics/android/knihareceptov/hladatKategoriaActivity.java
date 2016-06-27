@@ -21,8 +21,9 @@ import java.util.Locale;
 * http://stackoverflow.com/questions/19442378/navigation-drawer-to-switch-activities-instead-of-fragments*/
 
 public class hladatKategoriaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener  {
+    private KategoriaDao kategoriaDao=KategoriaDao.INSTANCE;
     private ListView listView;
-    private List<String> moznosti= new ArrayList<>();
+    private List<Kategoria> moznosti= new ArrayList<>();
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout drawerLayout;
 
@@ -52,31 +53,15 @@ public class hladatKategoriaActivity extends AppCompatActivity implements Adapte
         navigationListView.setOnItemClickListener(this);
 
 
-       if( Locale.getDefault().getDisplayLanguage().equals("slovenčina")) {
-            moznosti.add("Predjedlá");
-            moznosti.add("Polievky");
-            moznosti.add("Mäsité jedlá");
-            moznosti.add("Bezmäsité jedlá");
-            moznosti.add("Šaláty");
-            moznosti.add("Dezerty");
-            moznosti.add("Nápoje");
-        }else{
-           moznosti.add("Appetizers");
-           moznosti.add("Soups");
-           moznosti.add("Meat and Poultry");
-           moznosti.add("Meals without meat");
-           moznosti.add("Salads");
-           moznosti.add("Desserts");
-           moznosti.add("Drinks");
-
-       }
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,R.layout.custom_textview,moznosti);
+      
+        moznosti=kategoriaDao.list();
+        ArrayAdapter<Kategoria> adapter= new ArrayAdapter<Kategoria>(this,R.layout.custom_textview,moznosti);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(hladatKategoriaActivity.this, zobrazVysledkyActivity.class);
-                String kategoria = moznosti.get(position);
+                int kategoria = moznosti.get(position).getCisloKategorie();
                 intent.putExtra("Kategoria", kategoria);
                 startActivity(intent);
             }

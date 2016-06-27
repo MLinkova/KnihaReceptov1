@@ -87,8 +87,8 @@ public class zobrazVysledkyActivity extends AppCompatActivity implements Adapter
 
         }
         if(intent.hasExtra("Kategoria")){
-            String kategoria= (String) intent.getSerializableExtra("Kategoria");
-            String where= Recepty.Recept.KATEGORIA + " like " + "\'"+ kategoria + "\'";
+            int kategoria= (int) intent.getSerializableExtra("Kategoria");
+            String where= Recepty.Recept.KATEGORIA + " = " +  kategoria;
             AsyncQueryHandler handler= new AsyncQueryHandler(getContentResolver()) {
                 @Override
                 protected void onQueryComplete(int token, Object cookie, Cursor cursor) {

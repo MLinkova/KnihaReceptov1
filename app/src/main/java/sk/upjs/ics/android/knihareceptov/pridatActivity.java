@@ -92,69 +92,37 @@ public class pridatActivity extends AppCompatActivity implements AdapterView.OnI
 
                             String nazov = cursor.getString(1);
                             nazovEditText.setText(nazov);
-                            String kategoria = cursor.getString(2);
-                            if(Locale.getDefault().getDisplayLanguage().equals("slovenčina")) {
+                            int kategoria = Integer.parseInt(cursor.getString(2));
 
-                                if ("Predjedlá".equals(kategoria)) {
+                                if (kategoria==1) {
                                     predjedlaCheckBox.setChecked(true);
 
                                 }
-                                if ("Polievky".equals(kategoria)) {
+                                if (kategoria==2) {
                                     polievkyCheckBox.setChecked(true);
 
                                 }
-                                if ("Mäsité jedlá".equals(kategoria)) {
+                                if (kategoria==3) {
                                     masiteCheckBox.setChecked(true);
 
                                 }
-                                if ("Bezmäsité jedlá".equals(kategoria)) {
+                                if (kategoria==4) {
                                     bezmasiteCheckBox.setChecked(true);
 
                                 }
-                                if ("Šaláty".equals(kategoria)) {
+                                if (kategoria==5) {
                                     salatyCheckBox.setChecked(true);
 
                                 }
-                                if ("Dezerty".equals(kategoria)) {
+                                if (kategoria==6) {
                                     dezertyCheckBox.setChecked(true);
 
                                 }
-                                if ("Nápoje".equals(kategoria)) {
-                                    napojeCheckBox.setChecked(true);
-
-                                }
-                            }else{
-
-                                if ("Appetizers".equals(kategoria)) {
-                                    predjedlaCheckBox.setChecked(true);
-
-                                }
-                                if ("Soups".equals(kategoria)) {
-                                    polievkyCheckBox.setChecked(true);
-
-                                }
-                                if ("Meat and Poultry".equals(kategoria)) {
-                                    masiteCheckBox.setChecked(true);
-
-                                }
-                                if ("Meals without meat".equals(kategoria)) {
-                                    bezmasiteCheckBox.setChecked(true);
-
-                                }
-                                if ("Salads".equals(kategoria)) {
-                                    salatyCheckBox.setChecked(true);
-
-                                }
-                                if ("Desserts".equals(kategoria)) {
-                                    dezertyCheckBox.setChecked(true);
-
-                                }
-                                if ("Drinks".equals(kategoria)) {
+                                if (kategoria==7) {
                                     napojeCheckBox.setChecked(true);
 
                                 }
 
-                            }
 
 
                             String ingrediencie = cursor.getString(3);
@@ -181,65 +149,35 @@ public class pridatActivity extends AppCompatActivity implements AdapterView.OnI
     public void onBackPressed() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Recepty.Recept.NAZOV, nazovEditText.getText().toString());
-        if(Locale.getDefault().getDisplayLanguage().equals("slovenčina") ){
             if (predjedlaCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Predjedlá");
+                contentValues.put(Recepty.Recept.KATEGORIA, 1);
 
             }
             if (polievkyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Polievky");
+                contentValues.put(Recepty.Recept.KATEGORIA, 2);
 
             }
             if (masiteCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Mäsité jedlá");
+                contentValues.put(Recepty.Recept.KATEGORIA, 3);
 
             }
             if (bezmasiteCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Bezmäsité jedlá");
+                contentValues.put(Recepty.Recept.KATEGORIA, 4);
 
             }
             if (salatyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Šaláty");
+                contentValues.put(Recepty.Recept.KATEGORIA, 5);
 
             }
             if (dezertyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Dezerty");
+                contentValues.put(Recepty.Recept.KATEGORIA, 6);
 
             }
             if (napojeCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Nápoje");
-
-            }
-        }else{
-            if (predjedlaCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Appetizers");
-            }
-            if (polievkyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Soups");
-
-            }
-            if (masiteCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Meat and Poultry");
-
-            }
-            if (bezmasiteCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Meals without meat");
-
-            }
-            if (salatyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Salads");
-
-            }
-            if (dezertyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Desserts");
-
-            }
-            if (napojeCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, "Drinks");
+                contentValues.put(Recepty.Recept.KATEGORIA,7);
 
             }
 
-        }
 
         contentValues.put(Recepty.Recept.INGREDIENCIE,  ingrediencieEditText.getText().toString());
         contentValues.put(Recepty.Recept.POSTUP, postupEditText.getText().toString());
