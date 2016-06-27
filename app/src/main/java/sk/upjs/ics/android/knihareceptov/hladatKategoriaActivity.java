@@ -53,7 +53,7 @@ public class hladatKategoriaActivity extends AppCompatActivity implements Adapte
         navigationListView.setOnItemClickListener(this);
 
 
-      
+
         moznosti=kategoriaDao.list();
         ArrayAdapter<Kategoria> adapter= new ArrayAdapter<Kategoria>(this,R.layout.custom_textview,moznosti);
         listView.setAdapter(adapter);
