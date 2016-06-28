@@ -94,31 +94,31 @@ public class pridatActivity extends AppCompatActivity implements AdapterView.OnI
                             nazovEditText.setText(nazov);
                             int kategoria = Integer.parseInt(cursor.getString(2));
 
-                                if (kategoria==1) {
+                                if (kategoria==Konstanty.KATEGORIA_PREDJEDLA) {
                                     predjedlaCheckBox.setChecked(true);
 
                                 }
-                                if (kategoria==2) {
+                                if (kategoria==Konstanty.KATEGORIA_POLIEVKY) {
                                     polievkyCheckBox.setChecked(true);
 
                                 }
-                                if (kategoria==3) {
+                                if (kategoria==Konstanty.KATEGORIA_MASITE_JEDLA) {
                                     masiteCheckBox.setChecked(true);
 
                                 }
-                                if (kategoria==4) {
+                                if (kategoria==Konstanty.KATEGORIA_BEZMASITE_JEDLA) {
                                     bezmasiteCheckBox.setChecked(true);
 
                                 }
-                                if (kategoria==5) {
+                                if (kategoria==Konstanty.KATEGORIA_SALATY) {
                                     salatyCheckBox.setChecked(true);
 
                                 }
-                                if (kategoria==6) {
+                                if (kategoria==Konstanty.KATEGORIA_DEZERTY) {
                                     dezertyCheckBox.setChecked(true);
 
                                 }
-                                if (kategoria==7) {
+                                if (kategoria==Konstanty.KATEGORIA_NAPOJE) {
                                     napojeCheckBox.setChecked(true);
 
                                 }
@@ -150,31 +150,31 @@ public class pridatActivity extends AppCompatActivity implements AdapterView.OnI
         ContentValues contentValues = new ContentValues();
         contentValues.put(Recepty.Recept.NAZOV, nazovEditText.getText().toString());
             if (predjedlaCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, 1);
+                contentValues.put(Recepty.Recept.KATEGORIA, Konstanty.KATEGORIA_PREDJEDLA);
 
             }
             if (polievkyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, 2);
+                contentValues.put(Recepty.Recept.KATEGORIA, Konstanty.KATEGORIA_POLIEVKY);
 
             }
             if (masiteCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, 3);
+                contentValues.put(Recepty.Recept.KATEGORIA, Konstanty.KATEGORIA_MASITE_JEDLA);
 
             }
             if (bezmasiteCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, 4);
+                contentValues.put(Recepty.Recept.KATEGORIA, Konstanty.KATEGORIA_BEZMASITE_JEDLA);
 
             }
             if (salatyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, 5);
+                contentValues.put(Recepty.Recept.KATEGORIA, Konstanty.KATEGORIA_SALATY);
 
             }
             if (dezertyCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA, 6);
+                contentValues.put(Recepty.Recept.KATEGORIA, Konstanty.KATEGORIA_DEZERTY);
 
             }
             if (napojeCheckBox.isChecked()) {
-                contentValues.put(Recepty.Recept.KATEGORIA,7);
+                contentValues.put(Recepty.Recept.KATEGORIA,Konstanty.KATEGORIA_NAPOJE);
 
             }
 

@@ -35,5 +35,6 @@
     </string-array>
     <string name="openDrawer">Otvoriť</string>
     <string name="closeDrawer">Zatvoriť</string>
+    <string name="home">Úvod</string>
 
 </resources>

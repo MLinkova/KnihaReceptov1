@@ -35,6 +35,7 @@
     </string-array>
     <string name="openDrawer">Open</string>
     <string name="closeDrawer">Close</string>
+    <string name="home">Home</string>
 
 
 </resources>

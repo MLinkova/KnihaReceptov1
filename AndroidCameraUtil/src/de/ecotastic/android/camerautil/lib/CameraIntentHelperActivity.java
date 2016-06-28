@@ -18,7 +18,7 @@ import java.util.Locale;
 
 /**
  * Created by Michaela on 25.06.2016.
- * pouzite zdrojove kody:https://github.com/novotnyr/android-fotr-demo-2015/blob/master/AndroidCameraUtil/src/de/ecotastic/android/camerautil/lib/CameraIntentHelperActivity.java
+ * pomocne zdrojove kody:https://github.com/novotnyr/android-fotr-demo-2015/blob/master/AndroidCameraUtil/src/de/ecotastic/android/camerautil/lib/CameraIntentHelperActivity.java
  *
  */
 public class CameraIntentHelperActivity extends Activity {

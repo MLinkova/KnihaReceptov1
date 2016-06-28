@@ -20,22 +20,22 @@ public enum KategoriaDao {
         Kategoria dezert ;
         Kategoria napoj;
         if(Locale.getDefault().getDisplayLanguage().equals("slovenčina")) {
-             predjedla = new Kategoria(1, "Predjedlá");
-             polievky = new Kategoria(2, "Polievky");
-             masite = new Kategoria(3, "Mäsité jedlá");
-             bezmesite = new Kategoria(4, "Bezmäsité jedlá");
-             salat = new Kategoria(5, "Šaláty");
-             dezert = new Kategoria(6, "Dezerty");
-             napoj = new Kategoria(7, "Nápoje");
+             predjedla = new Kategoria(Konstanty.KATEGORIA_PREDJEDLA, "Predjedlá");
+             polievky = new Kategoria(Konstanty.KATEGORIA_POLIEVKY, "Polievky");
+             masite = new Kategoria(Konstanty.KATEGORIA_MASITE_JEDLA, "Mäsité jedlá");
+             bezmesite = new Kategoria(Konstanty.KATEGORIA_BEZMASITE_JEDLA, "Bezmäsité jedlá");
+             salat = new Kategoria(Konstanty.KATEGORIA_SALATY, "Šaláty");
+             dezert = new Kategoria(Konstanty.KATEGORIA_DEZERTY, "Dezerty");
+             napoj = new Kategoria(Konstanty.KATEGORIA_NAPOJE, "Nápoje");
 
         }else{
-             predjedla = new Kategoria(1, "Appetizers");
-             polievky = new Kategoria(2, "Soups");
-             masite = new Kategoria(3, "Meat and Poultry");
-             bezmesite = new Kategoria(4, "Meals without meat");
-             salat = new Kategoria(5, "Salads");
-             dezert = new Kategoria(6, "Desserts");
-             napoj = new Kategoria(7, "Drinks");
+             predjedla = new Kategoria(Konstanty.KATEGORIA_PREDJEDLA, "Appetizers");
+             polievky = new Kategoria(Konstanty.KATEGORIA_POLIEVKY, "Soups");
+             masite = new Kategoria(Konstanty.KATEGORIA_MASITE_JEDLA, "Meat and Poultry");
+             bezmesite = new Kategoria(Konstanty.KATEGORIA_BEZMASITE_JEDLA, "Meals without meat");
+             salat = new Kategoria(Konstanty.KATEGORIA_SALATY, "Salads");
+             dezert = new Kategoria(Konstanty.KATEGORIA_DEZERTY, "Desserts");
+             napoj = new Kategoria(Konstanty.KATEGORIA_NAPOJE, "Drinks");
 
         }
         kategorie.add(predjedla);

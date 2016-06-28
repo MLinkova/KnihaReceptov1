@@ -20,7 +20,7 @@ import java.io.IOException;
  * A helper class to conveniently alter Bitmap data
  *
  * @author Ralf Gehrer <ralf@ecotastic.de>
- *     pouzite zdrojove kody: https://github.com/novotnyr/android-fotr-demo-2015/blob/master/AndroidCameraUtil/src/de/ecotastic/android/camerautil/util/BitmapHelper.java
+ *     pomocne zdrojove kody: https://github.com/novotnyr/android-fotr-demo-2015/blob/master/AndroidCameraUtil/src/de/ecotastic/android/camerautil/util/BitmapHelper.java
  */
 public class BitmapHelper {
 
